@@ -23,3 +23,4 @@ C:\Projs\ASP\Restaurant.Api\obj\Debug\net8.0\refint\Restaurant.Api.dll
 C:\Projs\ASP\Restaurant.Api\obj\Debug\net8.0\Restaurant.Api.pdb
 C:\Projs\ASP\Restaurant.Api\obj\Debug\net8.0\Restaurant.Api.genruntimeconfig.cache
 C:\Projs\ASP\Restaurant.Api\obj\Debug\net8.0\ref\Restaurant.Api.dll
+C:\Projs\ASP\Restaurant.Api\obj\Debug\net8.0\Restaurant.Api.sourcelink.json
