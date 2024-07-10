@@ -1,4 +1,5 @@
-﻿using Restaurant.Api.Dto;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Restaurant.Api.Dto;
 
 namespace Restaurant.Api.Endpoint;
 //static means run once
@@ -25,9 +26,9 @@ public static class RestaurantEndPoint
             "Fries"
         )
     ];
-
+    
     //RouteGroupBuilder means Routing basically
-    public static RouteGroupBuilder MapOrderEndpoint(this RouteGroupBuilder app){
+    public static RouteGroupBuilder MapOrderEndpoint(this WebApplication app){
 
         
         var OrderEndpoint = app.MapGroup("order");
@@ -36,10 +37,16 @@ public static class RestaurantEndPoint
         //NOTE WALA PANG ASYNC AND AWAIT SINCE WALA PANG DATABASE
             return orders;
         });
-
+        
         OrderEndpoint.MapGet("/get/{id}", (int id) => { //Get basically for sending data 
         //this get is for getting specific data
-            return orders;
+            var existingId = orders.Find(order => order.Id == id);
+
+            if(!existingId){
+                return NoContent;
+                }
+
+            return existingId;
         });
 
         //Post needs payload usually used in creating object or data
